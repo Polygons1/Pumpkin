@@ -61,7 +61,7 @@ pub struct CommandTree {
 
 impl CommandTree {
     /// iterate over all possible paths that end in a [`NodeType::ExecuteLeaf`]
-    pub(crate) fn iter_paths(&self) -> impl Iterator<Item = Vec<usize>> + use<'_> {
+    pub(crate) fn iter_paths(&self) -> impl Iterator<Item = Vec<usize>> + '_ {
         let mut todo = VecDeque::<(usize, usize)>::new();
 
         // add root's children
